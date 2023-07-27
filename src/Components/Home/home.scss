@@ -1,0 +1,66 @@
+.container{
+    margin:auto;
+    background-color: rgb(235, 220, 245);
+    min-height:92vh;
+    width:80vw;
+    padding:4vmax 8vmax;
+    box-sizing: border-box;
+    > h1{
+       font-size:3rem;
+       text-align: center;
+       margin:10px;
+      
+    }
+
+    > form{
+        display:flex;
+        flex-direction:column;
+
+      > input,textarea,button{
+        font-size: 1.5rem;
+        padding:1.2rem;
+        margin:8px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        
+      }  
+      >button{
+        font-size: 1rem;
+        box-sizing: border-box;
+        border:none;
+        cursor: pointer;
+        background-color: rgb(241, 168, 108);
+        color:white;
+
+        &:hover{
+          background-color: rgb(204, 151, 36);
+        }
+      }
+}
+} 
+
+
+
+@media  screen and (max-width: 600px) {
+  .container{
+    padding:2px;
+   
+    >h1{
+      font-size: 1rem;
+    }
+// > input,textarea,button{
+//   width:98%;
+}
+
+
+
+
+  }
+  
+   
+  @media screen and (max-width: 992px) {
+    .container{
+      padding:4px;
+    
+    }
+  }

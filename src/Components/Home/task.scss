@@ -1,0 +1,38 @@
+
+
+.task{
+    font-size: 2rem;
+margin:8px;
+border-radius:10px;
+background-color: white;
+padding:6px;
+display:flex;
+align-items: center;
+justify-content: center;
+>div{
+    width:100%; 
+}
+>div>span{
+    color:rgb(116, 116, 116);
+}
+>button{
+   margin:5px;
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    font-size: 1.6rem;
+    display:flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(196, 16, 16);
+    color:white;
+    border:none;
+
+   &:hover{
+    background-color:rgb(241, 168, 108);
+    
+   }
+}
+
+}

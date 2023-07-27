@@ -1,0 +1,29 @@
+
+
+.navbar{  
+    background-color: rgb(243, 188, 116);
+    
+    padding:1.2rem;
+    display: flex;
+    align-items:center;
+    position:sticky;
+    border-radius: 0 0 20px 20px;
+    color:white;
+    flex-wrap: wrap;
+    > div{
+        min-width:35%;
+    }
+   
+   div > h1 {
+    flex:start;
+    color:black;
+    
+
+    
+   }
+   div > h2{
+    text-align: center;
+    justify-content: center;
+   }
+
+}
