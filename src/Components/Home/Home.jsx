@@ -21,11 +21,18 @@ const goals=localStorage.getItem("tasks")? JSON.parse(localStorage.getItem("task
   const [tasks, setTask] = useState(goals);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [edittaskk, setEdittask] = useState(-1);
 
   
      const addTasks = (e) => {
       e.preventDefault();
-      if(title !== "" && description !== ""){
+
+      if(title === "" && description === ""){
+        return  toast.error("Enter the Title  and  description ");
+      }
+
+
+      if(edittaskk === -1){
         setTask([
           ...tasks,
           {
@@ -33,13 +40,21 @@ const goals=localStorage.getItem("tasks")? JSON.parse(localStorage.getItem("task
             description,
           },
         ]);
-        setTitle("");
-        setDescription("");
+
         toast.success("New Goal Added Successfully");
+       
       }else{
-       toast.error("Enter the Title  and  description ");
+        
+        const currenttodos = [...tasks];
+        currenttodos[edittaskk] = {title,description};
+        setTask(currenttodos);
+        setEdittask(-1);
+        toast.success("Updated Successfully");
         
       }
+      setTitle("");
+      setDescription("");
+      
   };
    const deletetask =  (index) =>{
      const afterarray = tasks.filter((val,i)=>{
@@ -48,6 +63,22 @@ const goals=localStorage.getItem("tasks")? JSON.parse(localStorage.getItem("task
      setTask(afterarray);
      toast.success("Successfully Deleted!");
     
+  }
+
+  
+  
+  const edittask = (index) =>{
+      setEdittask(index);
+      setTitle(tasks[index].title);
+      setDescription(tasks[index].description);
+      toast.success("Update It Plzzzzzz");
+
+  }  
+  const cancleupdate=()=>{
+    setEdittask(-1)
+    setTitle("");
+    setDescription("");
+    toast.error("Update Cancle");
   }
 
   useEffect(()=>{
@@ -73,13 +104,19 @@ const goals=localStorage.getItem("tasks")? JSON.parse(localStorage.getItem("task
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button type="submit">Add</button>
+        { (title !== "") &&( description !== "") &&
+          <button type="submit" >{edittaskk === -1 ? 'ADD' : 'UPDATE'  }</button>
+      }
+        
+        {(edittaskk !== -1) && <button className="cancle" onClick={()=>cancleupdate() } >CANCLE</button>}
       </form>
+      
       {tasks.map((item, index) => (
-        <Task key={index} title={item.title} description={item.description} index={index}  deletetask={deletetask}/>
+        <Task key={index} title={item.title} description={item.description} index={index}  deletetask={deletetask} edittask={edittask}/>
       ))}
     </div>
   );
 };
 
 export default Home;
+// (edittaskk !== -1) &&

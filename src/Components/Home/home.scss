@@ -1,8 +1,8 @@
 .container{
     margin:auto;
     background-color: rgb(235, 220, 245);
-    min-height:92vh;
-    width:80vw;
+    height:90vh;
+    width:90vw;
     padding:4vmax 8vmax;
     box-sizing: border-box;
     > h1{
@@ -33,7 +33,13 @@
         color:white;
 
         &:hover{
-          background-color: rgb(204, 151, 36);
+          background-color: rgb(54, 165, 10);
+        }
+      }
+      .cancle{
+        background-color: rgba(255, 0, 0, 0.788) ;
+        &:hover{
+          background-color:rgba(255, 0, 0, 0.788) ;
         }
       }
 }
@@ -41,26 +47,31 @@
 
 
 
-@media  screen and (max-width: 600px) {
-  .container{
-    padding:2px;
-   
-    >h1{
-      font-size: 1rem;
-    }
-// > input,textarea,button{
-//   width:98%;
-}
 
-
-
-
-  }
   
    
   @media screen and (max-width: 992px) {
     .container{
+      height: 88.4vh;
       padding:4px;
     
     }
   }
+  @media  screen and (max-width: 600px) {
+    .container{
+      padding:2px;
+      height:84.5vh;
+    
+  
+      >h1{
+        
+        font-size: 1rem;
+      }
+  // > input,textarea,button{
+  //   width:98%;
+  }
+  
+  
+  
+  
+    }
